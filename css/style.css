@@ -30,33 +30,16 @@
   height: 100%;
 }
 .togle-container {
-  position: relative;
-}
-
-#error-message {
-  margin-bottom: 20px;
-  margin-left: -20px;
-  background-color: #ffd4d4;
-  padding: 10px;
-  border: 1px solid rgb(236, 190, 190);
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
-  color: rgb(106, 106, 106);
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-
-#input-percent {
-  width: 55px;
-  height: 35px;
-  font-size: 24px;
-  text-align: center;
-  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .togle {
   display: flex;
   align-items: center;
+  padding-left: 50px;
   margin-bottom: 20px;
   width: 100%;
   font-size: 24px;
@@ -131,4 +114,24 @@ input::-webkit-inner-spin-button {
 }
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+#error-message {
+  margin-bottom: 20px;
+  background-color: #ffd4d4;
+  padding: 10px;
+  border: 1px solid rgb(236, 190, 190);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
+  color: rgb(106, 106, 106);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+#input-percent {
+  width: 55px;
+  height: 35px;
+  font-size: 24px;
+  text-align: center;
+  border-radius: 20px;
 }

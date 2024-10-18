@@ -13,31 +13,34 @@
     <div class="container">
       <div class="container-progress">
         <div id="circle-container" class="circle-container"></div>
-        <div class="togle-container" class="togle-container">
-          <div id="error-message">Введите значение от 0 до 100</div>
-          <div class="togle">
-            <input
-              type="number"
-              name="percent"
-              id="input-percent"
-              min="0"
-              max="100"
-              value="0" />
-            <span class="togle__text">Value</span>
-          </div>
-          <div class="togle">
-            <label class="switch">
-              <input type="checkbox" id="input-animate" />
-              <span class="slider round"></span>
-            </label>
-            <span class="togle__text">Animate</span>
-          </div>
-          <div class="togle">
-            <label class="switch">
-              <input type="checkbox" id="input-hide" />
-              <span class="slider round"></span>
-            </label>
-            <span class="togle__text">Hide</span>
+        <div
+          style="display: flex; justify-content: center; align-items: center">
+          <div class="togle-container" class="togle-container">
+            <div id="error-message">Введите значение от 0 до 100</div>
+            <div class="togle">
+              <input
+                type="number"
+                name="percent"
+                id="input-percent"
+                min="0"
+                max="100"
+                value="0" />
+              <span class="togle__text">Value</span>
+            </div>
+            <div class="togle">
+              <label class="switch">
+                <input type="checkbox" id="input-animate" />
+                <span class="slider round"></span>
+              </label>
+              <span class="togle__text">Animate</span>
+            </div>
+            <div class="togle">
+              <label class="switch">
+                <input type="checkbox" id="input-hide" />
+                <span class="slider round"></span>
+              </label>
+              <span class="togle__text">Hide</span>
+            </div>
           </div>
         </div>
       </div>

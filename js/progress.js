@@ -36,7 +36,7 @@ export class Progress {
     circle1.setAttribute("id", this.idCircle1);
     circle1.setAttribute(
       "style",
-      `width: 100%;height: 100%;fill: none;stroke: ${this.color1};stroke-width: 10;stroke-linecap: round;transform: translate(5px, 5px);`
+      `width: 100%;height: 100%;fill: none;stroke: ${this.color1};stroke-width: 10;stroke-linecap: round;transform: translate(5px, 25px);`
     );
     circle1.setAttribute("cx", 100);
     circle1.setAttribute("cy", 100);
@@ -46,7 +46,7 @@ export class Progress {
     circle2.setAttribute("id", this.idCircle2);
     circle2.setAttribute(
       "style",
-      `width: 100%;height: 100%;fill: none;stroke: ${this.color2};stroke-width: 10;stroke-linecap: round;transform: translate(5px, 5px);stroke-dasharray: 628px;stroke-dashoffset: 628px;`
+      `width: 100%;height: 100%;fill: none;stroke: ${this.color2};stroke-width: 10;stroke-linecap: round;transform: translate(5px, 25px);stroke-dasharray: 628px;stroke-dashoffset: 628px;`
     );
     circle2.setAttribute("class", "animate");
     circle2.setAttribute("cx", 100);
