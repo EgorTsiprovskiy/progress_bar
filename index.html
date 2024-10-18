@@ -1,244 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Progress Block</title>
-<style>
-  .container .percent .number, .container .card, body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-input[type=number] {
-  -moz-appearance: textfield;
-}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="progress.css" />
+    <script type="module" defer src="script.js"></script>
 
-* {
-  margin: 0;
-  padding: 0;
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
-}
-
-body {
-  min-height: 100vh;
-}
-
-.container {
-  position: relative;
-  display: flex;
-  justify-content: space-around;
-}
-
-.container .card {
-  position: relative;
-  border-radius: 10px;
-  cursor: pointer;
-  text-align: center;
-  overflow: hidden;
-  transition: 0.5s ease;
-}
-
-svg {
-  position: relative;
-  width: 250px;
-  height: 250px;
-  visibility: visible;
-  transform: rotate(-90deg);
-  transition: opacity 0.5s ease-in-out;
-}
-.hidden {
-  opacity: 0;
-}
-
-svg circle {
-  width: 100%;
-  height: 100%;
-  fill: none;
-  stroke: rgb(234,240,245);
-  stroke-width: 10;
-  stroke-linecap: round;
-  transform: translate(5px, 5px);
-}
-
-svg circle:nth-child(2) {
-  stroke-dasharray: 628px;
-  stroke-dashoffset: 628px;
-}
-
-.card:nth-child(1) svg circle:nth-child(2) {
-    stroke: rgb(0,92,255);
-}
-#input-percent{
-    width: 55px;
-    height: 35px;
-    font-size: 24px;
-    text-align: center;
-    border-radius: 20px;
-}
-
-.togle{
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    width: 100%;
-    font-size: 24px;
-}
-.togle__text{
-    margin-left: 50px;
-}
-.container-progress{
-    width: 250px;
-}
-.container-togle{
-    margin-top: 30px;
-}
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 55px;
-  height: 35px;
-}
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-.slider.round {
-  border-radius: 34px;
-}
-.slider.round:before {
-  border-radius: 50%;
-}
-
-</style>
-</head>
-<body>
+    <title>Progress Block</title>
+  </head>
+  <body>
     <div class="container">
-        <div class="card">
-            <div class="container-progress">
-              <svg>
-                <circle cx="100" cy="100" r="100"></circle>
-                <circle id="circle-progress" cx="100" cy="100" r="100"></circle>
-              </svg>
-              <div class="container-togle">
-                <div class="togle">
-                    <input type="number" name="percent" id="input-percent" min="0" max="100" value="0">
-                    <span class="togle__text">Value</span>
-                </div>
-                <div class="togle">
-                    <label class="switch">
-                        <input type="checkbox" id="input-animate">
-                        <span class="slider round"></span>
-                    </label>
-                    <span class="togle__text">Animate</span>
-                </div>
-                <div class="togle">
-                    <label class="switch">
-                        <input type="checkbox" id="input-hide">
-                        <span class="slider round"></span>
-                    </label>
-                    <span class="togle__text">Hide</span>
-                </div>
-              </div>
-            </div>
+      <div class="container-progress">
+        <div id="circle-container" class="circle-container"></div>
+        <div class="togle-container" class="togle-container">
+          <div id="error-message">Введите значение от 0 до 100</div>
+          <div class="togle">
+            <input
+              type="number"
+              name="percent"
+              id="input-percent"
+              min="0"
+              max="100"
+              value="0" />
+            <span class="togle__text">Value</span>
           </div>
+          <div class="togle">
+            <label class="switch">
+              <input type="checkbox" id="input-animate" />
+              <span class="slider round"></span>
+            </label>
+            <span class="togle__text">Animate</span>
+          </div>
+          <div class="togle">
+            <label class="switch">
+              <input type="checkbox" id="input-hide" />
+              <span class="slider round"></span>
+            </label>
+            <span class="togle__text">Hide</span>
+          </div>
+        </div>
       </div>
-<script>
-  const block = document.querySelector('svg')
-  const circle = document.getElementById('circle-progress');
-  const percent = document.getElementById('input-percent');
-  const animate = document.getElementById('input-animate')
-  const hide = document.getElementById('input-hide')
-
-  let timerId = null;
-
-function setProgress(percent) {
-    const offset = (628 - (628 * percent) / 100);
-    circle.style.strokeDashoffset = offset + 'px';
-}
-
-percent.addEventListener('input', function () {
-    setProgress(percent.value);
-});
-
-function startProgress(val){
-    percent.value = 0;
-    timerId = setInterval(() =>{
-            val+=10;
-            if(val <= 100){
-                setProgress(val);
-            } else {
-                val = 0
-                setProgress(0);
-            }
-        },150)
-}
-function stopProgress() {
-    clearInterval(timerId);
-    setProgress(0)
-  }
-animate.addEventListener('change', function () {
-    let val = 0;
-
-    if(animate.checked){
-        startProgress(val)
-    } else {
-        stopProgress(val) 
-    }
-});
-hide.addEventListener('change', function () {
-    percent.value = 0
-    if(hide.checked){
-        block.classList.add('hidden')
-    } else {
-        block.classList.remove('hidden')
-    }
-    
-})
-</script>
-</body>
+    </div>
+  </body>
 </html>
