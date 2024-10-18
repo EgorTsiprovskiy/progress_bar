@@ -8,8 +8,6 @@ const newProgress = new Progress(
   0,
   "normal"
 );
-let circle = null;
-let block = null;
 
 document.addEventListener("DOMContentLoaded", () => {
   circle = document.getElementById("circle2");
@@ -19,6 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
 const percent = document.getElementById("input-percent");
 const animate = document.getElementById("input-animate");
 const hide = document.getElementById("input-hide");
+
+const togleValue = document.getElementById("togle__value");
+const tooltipValue = document.querySelector(".tooltipValue");
+const togleAnimate = document.getElementById("togle__animate");
+const tooltipAnimate = document.querySelector(".tooltipAnimate");
+const togleHide = document.getElementById("togle__hide");
+const tooltipHide = document.querySelector(".tooltipHide");
 function validateInput(input) {
   const value = input.value;
   const regex = /^[1-9][0-9]+$/;
@@ -64,4 +69,49 @@ hide.addEventListener("change", function () {
   } else {
     newProgress.setHidden(false);
   }
+});
+
+togleValue.addEventListener("click", function () {
+  tooltipValue.style.opacity = 1;
+  setTimeout(function () {
+    tooltipValue.style.opacity = 0;
+  }, 1500);
+});
+
+togleValue.addEventListener("mouseover", function () {
+  tooltipValue.style.opacity = 1;
+});
+
+togleValue.addEventListener("mouseout", function () {
+  tooltipValue.style.opacity = 0;
+});
+
+togleAnimate.addEventListener("click", function () {
+  tooltipAnimate.style.opacity = 1;
+  setTimeout(function () {
+    tooltipAnimate.style.opacity = 0;
+  }, 1500);
+});
+
+togleAnimate.addEventListener("mouseover", function () {
+  tooltipAnimate.style.opacity = 1;
+});
+
+togleAnimate.addEventListener("mouseout", function () {
+  tooltipAnimate.style.opacity = 0;
+});
+
+togleHide.addEventListener("click", function () {
+  tooltipHide.style.opacity = 1;
+  setTimeout(function () {
+    tooltipHide.style.opacity = 0;
+  }, 1500);
+});
+
+togleHide.addEventListener("mouseover", function () {
+  tooltipHide.style.opacity = 1;
+});
+
+togleHide.addEventListener("mouseout", function () {
+  tooltipHide.style.opacity = 0;
 });
