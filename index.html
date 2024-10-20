@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="container-progress">
+      <div class="progress-container">
         <div id="circle-container" class="circle-container"></div>
         <div
           style="display: flex; justify-content: center; align-items: center">
@@ -24,7 +24,8 @@
                 id="input-percent"
                 min="0"
                 max="100"
-                value="0" />
+                value="0"
+                pattern="[0-9]+(\.[0-9]{1,2})?" />
               <span class="togle__text">Value</span>
               <span class="tooltipValue"
                 >Поле для ввода значения (от 0 до 100)</span

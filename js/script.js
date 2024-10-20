@@ -9,11 +9,6 @@ const newProgress = new Progress(
   "normal"
 );
 
-document.addEventListener("DOMContentLoaded", () => {
-  circle = document.getElementById("circle2");
-  block = document.getElementById("svg1");
-});
-
 const percent = document.getElementById("input-percent");
 const animate = document.getElementById("input-animate");
 const hide = document.getElementById("input-hide");
@@ -26,15 +21,17 @@ const togleHide = document.getElementById("togle__hide");
 const tooltipHide = document.querySelector(".tooltipHide");
 function validateInput(input) {
   const value = input.value;
-  const regex = /^[1-9][0-9]+$/;
+  const maxLength = 6;
+  const regex = /^(100(\.0{1,2})?|[1-9]?[0-9](\.[0-9]{1,2})?)$/;
   if (!regex.test(value)) {
-    input.value = 0;
     showErrorMessage();
-  } else if (value < 0 || value > 100) {
-    input.value = 0;
+    return false;
+  } else if (value <= 0 || value > 100) {
     showErrorMessage();
+    return false;
   } else {
     hideErrorMessage();
+    return true;
   }
 }
 function showErrorMessage() {
@@ -48,8 +45,9 @@ function hideErrorMessage() {
 }
 
 percent.addEventListener("input", function () {
-  validateInput(percent);
-  newProgress.setValue(percent.value);
+  if (validateInput(percent)) {
+    newProgress.setValue(percent.value);
+  }
 });
 
 animate.addEventListener("change", function () {
