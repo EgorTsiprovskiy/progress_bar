@@ -21,13 +21,14 @@ const togleHide = document.getElementById("togle__hide");
 const tooltipHide = document.querySelector(".tooltipHide");
 function validateInput(input) {
   const value = input.value;
-  const maxLength = 6;
   const regex = /^(100(\.0{1,2})?|[1-9]?[0-9](\.[0-9]{1,2})?)$/;
   if (!regex.test(value)) {
     showErrorMessage();
+    newProgress.setValue(0);
     return false;
   } else if (value <= 0 || value > 100) {
     showErrorMessage();
+    newProgress.setValue(0);
     return false;
   } else {
     hideErrorMessage();
