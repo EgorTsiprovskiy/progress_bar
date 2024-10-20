@@ -1,10 +1,10 @@
 @media (orientation: portrait) {
-  .container-progress {
+  .progress-container {
     flex-direction: column;
   }
 }
 @media (orientation: landscape) {
-  .container-progress {
+  .progress-container {
     flex-direction: row;
   }
 }

@@ -13,40 +13,37 @@
     <div class="container">
       <div class="progress-container">
         <div id="circle-container" class="circle-container"></div>
-        <div
-          style="display: flex; justify-content: center; align-items: center">
-          <div class="togle-container" class="togle-container">
-            <div id="error-message">Введите значение от 0 до 100</div>
-            <div class="togle" id="togle__value">
-              <input
-                type="number"
-                name="percent"
-                id="input-percent"
-                min="0"
-                max="100"
-                value="0"
-                pattern="[0-9]+(\.[0-9]{1,2})?" />
-              <span class="togle__text">Value</span>
-              <span class="tooltipValue"
-                >Поле для ввода значения (от 0 до 100)</span
-              >
-            </div>
-            <div class="togle" id="togle__animate">
-              <label class="switch">
-                <input type="checkbox" id="input-animate" />
-                <span class="slider round"></span>
-              </label>
-              <span class="togle__text">Animate</span>
-              <span class="tooltipAnimate">Запуск анимации загрузки</span>
-            </div>
-            <div class="togle" id="togle__hide">
-              <label class="switch">
-                <input type="checkbox" id="input-hide" />
-                <span class="slider round"></span>
-              </label>
-              <span class="togle__text">Hide</span>
-              <span class="tooltipHide">Скрыть / показать блок</span>
-            </div>
+        <div class="togle-container" class="togle-container">
+          <div id="error-message">Введите значение от 0 до 100</div>
+          <div class="togle" id="togle__value">
+            <input
+              type="number"
+              name="percent"
+              id="input-percent"
+              min="0"
+              max="100"
+              value="0"
+              pattern="[0-9]+(\.[0-9]{1,2})?" />
+            <span class="togle__text">Value</span>
+            <span class="tooltipValue"
+              >Поле для ввода значения (от 0 до 100)</span
+            >
+          </div>
+          <div class="togle" id="togle__animate">
+            <label class="switch">
+              <input type="checkbox" id="input-animate" />
+              <span class="slider round"></span>
+            </label>
+            <span class="togle__text">Animate</span>
+            <span class="tooltipAnimate">Запуск анимации загрузки</span>
+          </div>
+          <div class="togle" id="togle__hide">
+            <label class="switch">
+              <input type="checkbox" id="input-hide" />
+              <span class="slider round"></span>
+            </label>
+            <span class="togle__text">Hide</span>
+            <span class="tooltipHide">Скрыть / показать блок</span>
           </div>
         </div>
       </div>
